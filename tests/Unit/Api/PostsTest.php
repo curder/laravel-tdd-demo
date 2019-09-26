@@ -50,4 +50,18 @@ class PostsTest extends TestCase
             ->assertOK()
             ->assertJson($updated_data);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_show_posts()
+    {
+        $count = 10;
+        $posts = factory(Post::class, $count)->create();
+
+        $this->get(route('api.posts.index'))
+            ->assertJsonCount($count)
+            ->assertOk()
+            ->assertJson($posts->toArray());
+    }
 }
