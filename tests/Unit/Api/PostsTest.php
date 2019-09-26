@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Api;
 
+use App\Models\Post;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -21,5 +22,17 @@ class PostsTest extends TestCase
         $this->post(route('api.posts.store'), $data)
             ->assertStatus(201)
             ->assertJson($data);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_delete_a_post()
+    {
+        $post = factory(Post::class)->create();
+
+        $this->delete(route('api.posts.destroy', $post))
+            ->assertStatus(200)
+            ->assertJson($post->toArray());
     }
 }
