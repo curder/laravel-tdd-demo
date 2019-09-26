@@ -47,7 +47,7 @@ class PostsTest extends TestCase
         $updated_data = factory(Post::class)->raw();
 
         $this->patch(route('api.posts.update', $post), $updated_data)
-            // ->assertOK()
+            ->assertOK()
             ->assertJson($updated_data);
     }
 }

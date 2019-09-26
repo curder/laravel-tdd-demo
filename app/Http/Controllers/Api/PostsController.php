@@ -13,6 +13,15 @@ class PostsController extends Controller
         return Post::create($request->all());
     }
 
+    public function update(Request $request, Post $post)
+    {
+        $updated = $request->all();
+
+        $post->update($updated);
+
+        return $post;
+    }
+
     public function destroy(Post $post)
     {
         $post->delete();
