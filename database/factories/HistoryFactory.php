@@ -2,15 +2,12 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Post;
+use App\Models\History;
 use App\User;
 use Faker\Generator as Faker;
 
-$factory->define(Post::class, function (Faker $faker) {
+$factory->define(History::class, function (Faker $faker) {
     return [
         'user_id' => factory(User::class)->create()->id,
-        'title' => $faker->sentence,
-        'description' => $faker->sentence,
-        'body' => $faker->paragraph
     ];
 });

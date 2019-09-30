@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Phone;
 use App\Models\Role;
+use App\Models\Supplier;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'supplier_id', 'name', 'email', 'password',
     ];
 
     /**
@@ -56,5 +57,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
     }
 }

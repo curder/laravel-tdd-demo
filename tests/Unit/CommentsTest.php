@@ -32,7 +32,7 @@ class CommentsTest extends TestCase
     {
         $user = factory(User::class)->create();
         $post = factory(Post::class)->create(['user_id' => $user->id]);
-        $comment = factory(Comment::class)->make(['post_id' => $post->id]);
+        $comment = factory(Comment::class)->create(['post_id' => $post->id]);
 
         // Method 1: Test by count that a comment has a parent relationship with post
         $this->assertEquals(2, $comment->post->count());
