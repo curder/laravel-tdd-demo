@@ -2,13 +2,21 @@
 
 namespace Tests\Unit\Api;
 
-use App\Models\Post;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Post;
+use Illuminate\Support\Facades\Schema;
 
 class PostsTest extends TestCase
 {
+    /** @test */
+    public function posts_database_has_expected_columns()
+    {
+        $this->assertTrue(
+            Schema::hasColumns('posts', [
+                'id', 'title', 'description', 'body',
+            ]));
+    }
+
     /**
      * @test
      */
@@ -16,7 +24,7 @@ class PostsTest extends TestCase
     {
         $data = [
             'title' => $this->faker->sentence,
-            'body' => $this->faker->paragraph
+            'body' => $this->faker->paragraph,
         ];
 
         $this->post(route('api.posts.store'), $data)
@@ -35,7 +43,6 @@ class PostsTest extends TestCase
             ->assertStatus(200)
             ->assertJson($post->toArray());
     }
-
 
     /**
      * @test
