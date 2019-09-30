@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * Class UserTest
+ *
+ * @package Tests\Unit
+ */
 class UserTest extends TestCase
 {
     use RefreshDatabase;

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * Class PostsTest
+ *
+ * @package Tests\Unit\Api
+ */
 class PostsTest extends TestCase
 {
     use RefreshDatabase;
