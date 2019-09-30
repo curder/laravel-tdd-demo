@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\User;
 use Tests\TestCase;
+use App\Models\Role;
 use App\Models\Phone;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -36,5 +37,13 @@ class UserTest extends TestCase
 
         // Method 2:
         $this->assertEquals(1, $user->phone->count());
+    }
+
+    /** @test  */
+    public function a_user_belongs_to_many_roles()
+    {
+        $user = factory(User::class)->create();
+        $role = factory(Role::class)->create();
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->roles);
     }
 }
