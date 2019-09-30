@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Video;
 use App\User;
 use Tests\TestCase;
 use App\Models\Post;
@@ -39,5 +40,29 @@ class CommentsTest extends TestCase
 
         // Method 2:
         $this->assertInstanceOf(Post::class, $comment->post);
+    }
+
+    /** @test */
+    public function a_comment_can_be_morphed_to_a_video_model()
+    {
+        $video = factory(Video::class)->create();
+
+        $comment = factory(Comment::class)->create([
+            'commentable_id'   => $video->id,
+            'commentable_type' => get_class($video),
+        ]);
+        $this->assertInstanceOf(Video::class, $comment->commentable);
+    }
+
+    /** @test */
+    public function a_comment_can_be_morphed_to_a_post_model()
+    {
+        $post = factory(Post::class)->create();
+
+        $comment = factory(Comment::class)->create([
+            'commentable_id'   => $post->id,
+            'commentable_type' => get_class($post),
+        ]);
+        $this->assertInstanceOf(Post::class, $comment->commentable);
     }
 }
