@@ -2,17 +2,18 @@
 
 namespace App;
 
-use App\Models\Phone;
+use App\Models\Country;
 use App\Models\Role;
+use App\Models\Phone;
 use App\Models\Supplier;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * Class User
- *
- * @package App
+ * Class User.
  */
 class User extends Authenticatable
 {
@@ -24,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'supplier_id', 'name', 'email', 'password',
+        'supplier_id', 'country_id', 'name', 'email', 'password',
     ];
 
     /**
@@ -44,24 +45,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
     public function phone()
     {
         return $this->hasOne(Phone::class);
     }
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return BelongsToMany
      */
     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
 
-
+    /**
+     * @return BelongsTo
+     */
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+    /**
+     * @return BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
 }
