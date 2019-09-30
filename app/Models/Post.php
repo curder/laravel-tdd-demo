@@ -36,6 +36,14 @@ class Post extends Model
     }
 
     /**
+     * Get the post's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    /**
      * With this attribute defined it can be used as $this->country.
      */
     public function getCountryAttribute()

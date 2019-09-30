@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Comment;
+use App\Models\Image;
 use App\Models\Post;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -37,5 +38,17 @@ class PostsTest extends TestCase
         $this->assertEquals(1, $post->comments->count());
         // Method 3: Comments are related to posts and is a collection instance.
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $post->comments);
+    }
+
+    /** @test */
+    public function a_post_morphs_one_image()
+    {
+        $post = factory(Post::class)->create();
+        factory(Image::class)->create([
+            'imageable_id'   => $post->id,
+            'imageable_type' => get_class($post),
+        ]);
+
+        $this->assertInstanceOf(Image::class, $post->image);
     }
 }

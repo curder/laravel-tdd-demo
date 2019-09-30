@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Country;
+use App\Models\Image;
 use App\Models\Role;
 use App\Models\Phone;
 use App\Models\Supplier;
@@ -75,5 +76,13 @@ class User extends Authenticatable
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    /**
+     * Get the user's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

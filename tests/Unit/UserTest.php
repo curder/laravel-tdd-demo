@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Image;
 use App\User;
 use Tests\TestCase;
 use App\Models\Role;
@@ -45,5 +46,16 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
         $role = factory(Role::class)->create();
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->roles);
+    }
+
+    /** @test */
+    public function a_user_morphs_one_image()
+    {
+        $user = factory(User::class)->create();
+        factory(Image::class)->create([
+            'imageable_id'   => $user->id,
+            'imageable_type' => get_class($user),
+        ]);
+        $this->assertInstanceOf(Image::class, $user->image);
     }
 }
