@@ -4,7 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+/**
+ * Class CreatePhonesTable
+ */
+class CreatePhonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +16,9 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('phones', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->text('body');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('phones');
     }
 }

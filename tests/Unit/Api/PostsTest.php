@@ -2,30 +2,19 @@
 
 namespace Tests\Unit\Api;
 
+use App\User;
 use Tests\TestCase;
 use App\Models\Post;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
- * Class PostsTest
- *
- * @package Tests\Unit\Api
+ * Class PostsTest.
  */
 class PostsTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
-
-    /** @test */
-    public function posts_database_has_expected_columns()
-    {
-        $this->assertTrue(
-            Schema::hasColumns('posts', [
-                'id', 'title', 'description', 'body',
-            ]));
-    }
 
     /**
      * @test
@@ -33,6 +22,7 @@ class PostsTest extends TestCase
     public function it_can_create_a_post()
     {
         $data = [
+            'user_id' => factory(User::class)->create()->id,
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
         ];

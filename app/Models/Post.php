@@ -4,7 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Post
+ *
+ * @package App\Models
+ */
 class Post extends Model
 {
-    protected $fillable = ['title', 'description', 'body'];
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'title', 'description', 'body'
+    ];
 }
