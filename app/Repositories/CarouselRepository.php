@@ -72,7 +72,7 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
      * @return bool
      * @throws \Exception
      */
-    public function deleteCarousel() : bool
+    public function deleteCarousel() : ?bool
     {
         return $this->model->delete();
     }
