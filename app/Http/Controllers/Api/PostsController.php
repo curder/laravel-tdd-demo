@@ -2,35 +2,81 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\Interfaces\PostRepositoryInterface;
 
+/**
+ * Class PostsController.
+ */
 class PostsController extends Controller
 {
+    /**
+     * @var PostRepositoryInterface
+     */
+    protected $postRepository;
 
+    /**
+     * PostsController constructor.
+     *
+     * @param PostRepositoryInterface $postRepository
+     */
+    public function __construct(PostRepositoryInterface $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
     public function index(Request $request)
     {
-        return Post::all();
+        return $this->postRepository->all();
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
     public function store(Request $request)
     {
-        return Post::create($request->all());
+        return $this->postRepository->create($request->all());
     }
 
-    public function update(Request $request, Post $post)
+    /**
+     * @param Request $request
+     * @param Post    $post
+     *
+     * @return Post
+     */
+    public function update(Request $request, Post $post) : Post
     {
         $updated = $request->all();
 
-        $post->update($updated);
+        $postRepository = new PostRepository($post);
+
+        $postRepository->update($updated);
 
         return $post;
     }
 
-    public function destroy(Post $post)
+    /**
+     * @param Post $post
+     *
+     * @return Post
+     *
+     * @throws \Exception
+     */
+    public function destroy(Post $post) : Post
     {
-        $post->delete();
+        $postRepository = new PostRepository($post);
+
+        $postRepository->delete();
 
         return $post;
     }
