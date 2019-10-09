@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Exceptions\CarouselNotFoundException;
+use App\Exceptions\UpdateCarouselErrorException;
 use App\Models\Carousel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -52,6 +53,19 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
             return $this->model->findOrFail($id);
         } catch (ModelNotFoundException $e) {
             throw new CarouselNotFoundException($e);
+        }
+    }
+    /**
+     * @param array $data
+     * @return bool
+     * @throws UpdateCarouselErrorException
+     */
+    public function updateCarousel(array $data) : bool
+    {
+        try {
+            return $this->model->update($data);
+        } catch (QueryException $e) {
+            throw new UpdateCarouselErrorException($e);
         }
     }
 }
