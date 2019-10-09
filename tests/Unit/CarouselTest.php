@@ -34,4 +34,19 @@ class CarouselTest extends TestCase
        $this->assertEquals($data['link'], $carousel->link);
        $this->assertEquals($data['src'], $carousel->src);
    }
+
+   /** @test */
+   public function it_can_show_the_carousel()
+   {
+       $carousel = factory(Carousel::class)->create();
+       $carouselRepo = new CarouselRepository(new Carousel);
+       $found = $carouselRepo->findCarousel($carousel->id);
+
+       $this->assertInstanceOf(Carousel::class, $found);
+       $this->assertEquals($found->title, $carousel->title);
+       $this->assertEquals($found->link, $carousel->link);
+       $this->assertEquals($found->src, $carousel->src);
+   }
+
+
 }
