@@ -14,6 +14,9 @@ jobs:
     - name: Prepare Laravel Application
       run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
 
+    - name: Generate key
+      run: php artisan key:generate
+
     - name: Install Dependencies (PHP vendors)
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
@@ -22,9 +25,6 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
         php artisan migrate
-
-    - name: Generate key
-      run: php artisan key:generate
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit tests/
