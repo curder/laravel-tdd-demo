@@ -67,4 +67,15 @@ class CarouselTest extends TestCase
         $this->assertEquals($data['link'], $carousel->link);
         $this->assertEquals($data['src'], $carousel->src);
     }
+
+    /** @test */
+    public function it_can_delete_the_carousel()
+    {
+        $carousel = factory(Carousel::class)->create();
+
+        $carouselRepo = new CarouselRepository($carousel);
+        $delete = $carouselRepo->deleteCarousel();
+
+        $this->assertTrue($delete);
+    }
 }
