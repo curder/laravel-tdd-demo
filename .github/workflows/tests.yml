@@ -15,7 +15,7 @@ jobs:
       run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
     - name: Prepare Laravel Application
-      run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
     - name: Generate key
       run: php artisan key:generate
