@@ -1,6 +1,6 @@
 # laravel tdd
 
-[ ![](https://github.com/curder/laravel-tdd/workflows/.github/workflows/tests.yml/badge.svg) ](https://github.com/curder/laravel-tdd/actions)
+[ ![](https://github.com/curder/laravel-tdd/workflows/.github/workflows/test.yml/badge.svg) ](https://github.com/curder/laravel-tdd/actions)
 
 
 - [Part 1: Testing Model Relationships in Laravel — Schema Tests](https://medium.com/@tonyfrenzy/part-1-testing-model-relationships-in-laravel-schema-tests-a321f0bf4409)
