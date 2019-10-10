@@ -14,3 +14,11 @@
 - [CRUD Unit Testing in Laravel 5](https://medium.com/@jsdecena/crud-unit-testing-in-laravel-5-ac286f592cfd)
 
 - [Negative CRUD Unit Testing in Laravel 5](https://medium.com/@jsdecena/negative-crud-unit-testing-in-laravel-5-7dc728f99fc5)
+
+
+## Q&A
+
+- [BadMethodCallException: SQLite doesn't support dropping foreign keys (you would need to re-create the table).](https://github.com/laravel/framework/issues/25475#issuecomment-439342648)
+
+- [ReflectionException: Class env does not exist](https://github.com/laravel/framework/issues/26627#issuecomment-497276990)
+
