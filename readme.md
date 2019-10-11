@@ -1,4 +1,4 @@
-# laravel tdd
+## laravel tdd
 
 [ ![](https://github.com/curder/laravel-tdd/workflows/.github/workflows/test.yml/badge.svg) ](https://github.com/curder/laravel-tdd/actions)
 
@@ -22,3 +22,9 @@
 
 - [ReflectionException: Class env does not exist](https://github.com/laravel/framework/issues/26627#issuecomment-497276990)
 
+
+## Other
+
+- [Laravel UUID Models - ryancco/laravel-uuid-models](https://github.com/ryancco/laravel-uuid-models)
+
+- [Laravel Model UUIDs - michaeldyrynda/laravel-model-uuid](https://github.com/michaeldyrynda/laravel-model-uuid)
