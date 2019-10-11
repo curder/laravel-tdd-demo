@@ -3,21 +3,51 @@
 namespace App\Models;
 
 use App\User;
+use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Ramsey\Uuid\Exception\InvalidUuidStringException;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class Post.
  */
 class Post extends Model
 {
+    use GeneratesUuid;
+
+    protected $uuidVersion = 'ordered';
+
     /**
      * @var array
      */
     protected $fillable = [
-        'user_id', 'title', 'description', 'body',
+        'uuid', 'user_id', 'title', 'description', 'body',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::updating(static function(Post $model) {
+            if($model->isDirty('uuid')) {
+                $model->uuid = $model->getOriginal('uuid');
+            }
+        });
+
+    }
+
+    /**
+     * @return UuidInterface
+     * @throws InvalidUuidStringException
+     */
+    public function getUuidAttribute(): ?UuidInterface
+    {
+        $attribute = $this->attributes[$this->getRouteKeyName()] ?? null;
+        return !$attribute ? null : Uuid::fromString($attribute);
+    }
 
     /**
      * @return HasMany
@@ -49,5 +79,10 @@ class Post extends Model
     public function getCountryAttribute()
     {
         return $this->user->country;
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
     }
 }

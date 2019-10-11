@@ -6,24 +6,21 @@ use App\User;
 use Tests\TestCase;
 use App\Models\Post;
 use App\Models\Country;
-use App\Models\Supplier;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
- * Class CountriesTest
- *
- * @package Tests\Unit
+ * Class CountriesTest.
  */
 class CountriesTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
 
-
     /** @test  */
-    public function countries_database_has_expected_columns()
+    public function countries_database_has_expected_columns(): void
     {
         $this->assertTrue(
             Schema::hasColumns('countries', [
@@ -32,7 +29,7 @@ class CountriesTest extends TestCase
     }
 
     /** @test */
-    public function a_country_has_many_posts_through_user()
+    public function a_country_has_many_posts_through_user(): void
     {
         $country = factory(Country::class)->create();
         $user = factory(User::class)->create(['country_id' => $country->id]);
@@ -44,6 +41,6 @@ class CountriesTest extends TestCase
         // Method 2:
         $this->assertEquals(1, $country->posts->count());
         // Method 3:
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $country->posts);
+        $this->assertInstanceOf(Collection::class, $country->posts);
     }
 }

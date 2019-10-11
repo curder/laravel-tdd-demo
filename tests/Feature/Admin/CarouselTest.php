@@ -3,8 +3,8 @@
 namespace Tests\Feature\Admin;
 
 use App\User;
-use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -17,7 +17,7 @@ class CarouselTest extends TestCase
     use WithFaker;
 
     /** @test */
-    public function it_can_show_the_create_carousel_page()
+    public function it_can_show_the_create_carousel_page(): void
     {
         $employee = factory(User::class)->create();
 
@@ -30,7 +30,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_the_carousel()
+    public function it_can_create_the_carousel(): void
     {
         $file = UploadedFile::fake()->create('image.jpg');
         $data = [

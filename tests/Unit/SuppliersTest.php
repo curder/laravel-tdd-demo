@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Models\History;
-use App\Models\Supplier;
 use App\User;
 use Tests\TestCase;
+use App\Models\History;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,7 +19,7 @@ class SuppliersTest extends TestCase
     use WithFaker;
 
     /** @test  */
-    public function suppliers_database_has_expected_columns()
+    public function suppliers_database_has_expected_columns(): void
     {
         $this->assertTrue(
             Schema::hasColumns('suppliers', [
@@ -28,7 +28,7 @@ class SuppliersTest extends TestCase
     }
 
     /** @test */
-    public function a_supplier_has_an_history_through_user()
+    public function a_supplier_has_an_history_through_user(): void
     {
         $supplier = factory(Supplier::class)->create();
         $user = factory(User::class)->create(['supplier_id' => $supplier->id]);

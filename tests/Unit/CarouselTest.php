@@ -20,7 +20,7 @@ class CarouselTest extends TestCase
     use WithFaker;
 
     /** @test */
-    public function it_should_throw_an_error_when_the_required_columns_are_not_filled()
+    public function it_should_throw_an_error_when_the_required_columns_are_not_filled(): void
     {
         $this->expectException(CreateCarouselErrorException::class);
         $carouselRepo = new CarouselRepository(new Carousel());
@@ -28,7 +28,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_a_carousel()
+    public function it_can_create_a_carousel(): void
     {
         $data = [
            'title' => $this->faker->word,
@@ -46,7 +46,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_can_show_the_carousel()
+    public function it_can_show_the_carousel(): void
     {
         $carousel = factory(Carousel::class)->create();
         $carouselRepo = new CarouselRepository(new Carousel());
@@ -59,7 +59,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_should_throw_not_found_error_exception_when_the_carousel_is_not_found()
+    public function it_should_throw_not_found_error_exception_when_the_carousel_is_not_found(): void
     {
         $this->expectException(CarouselNotFoundException::class);
         $carouselRepo = new CarouselRepository(new Carousel());
@@ -67,7 +67,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_the_carousel()
+    public function it_can_update_the_carousel(): void
     {
         $carousel = factory(Carousel::class)->create();
 
@@ -87,7 +87,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_should_throw_update_error_exception_when_the_carousel_has_failed_to_update()
+    public function it_should_throw_update_error_exception_when_the_carousel_has_failed_to_update(): void
     {
         $this->expectException(UpdateCarouselErrorException::class);
         $carousel = factory(Carousel::class)->create();
@@ -97,7 +97,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_can_delete_the_carousel()
+    public function it_can_delete_the_carousel(): void
     {
         $carousel = factory(Carousel::class)->create();
 
@@ -108,7 +108,7 @@ class CarouselTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_null_when_deleting_a_non_existing_carousel()
+    public function it_returns_null_when_deleting_a_non_existing_carousel(): void
     {
         $carouselRepo = new CarouselRepository(new Carousel());
         $delete = $carouselRepo->deleteCarousel();

@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Models\Phone;
 use App\User;
 use Tests\TestCase;
+use App\Models\Phone;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,7 +18,7 @@ class PhonesTest extends TestCase
     use WithFaker;
 
     /** @test */
-    public function phones_database_has_expected_columns()
+    public function phones_database_has_expected_columns(): void
     {
         $this->assertTrue(Schema::hasColumns('phones', [
             'user_id',
@@ -26,7 +26,7 @@ class PhonesTest extends TestCase
     }
 
     /** @test */
-    public function a_phone_belongs_to_a_user()
+    public function a_phone_belongs_to_a_user(): void
     {
         $user = factory(User::class)->create();
         $phone = factory(Phone::class)->create(['user_id' => $user->id]);

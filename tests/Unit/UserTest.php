@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Models\Image;
 use App\User;
 use Tests\TestCase;
 use App\Models\Role;
+use App\Models\Image;
 use App\Models\Phone;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -20,7 +20,7 @@ class UserTest extends TestCase
     use WithFaker;
 
     /** @test */
-    public function users_database_has_expected_columns()
+    public function users_database_has_expected_columns(): void
     {
         $this->assertTrue(
             Schema::hasColumns('users', [
@@ -29,7 +29,7 @@ class UserTest extends TestCase
     }
 
     /** @test */
-    public function a_user_has_a_phone()
+    public function a_user_has_a_phone(): void
     {
         $user = factory(User::class)->create();
         $phone = factory(Phone::class)->create(['user_id' => $user->id]);
@@ -41,7 +41,7 @@ class UserTest extends TestCase
     }
 
     /** @test  */
-    public function a_user_belongs_to_many_roles()
+    public function a_user_belongs_to_many_roles(): void
     {
         $user = factory(User::class)->create();
         $role = factory(Role::class)->create();
@@ -49,11 +49,11 @@ class UserTest extends TestCase
     }
 
     /** @test */
-    public function a_user_morphs_one_image()
+    public function a_user_morphs_one_image(): void
     {
         $user = factory(User::class)->create();
         factory(Image::class)->create([
-            'imageable_id'   => $user->id,
+            'imageable_id' => $user->id,
             'imageable_type' => get_class($user),
         ]);
         $this->assertInstanceOf(Image::class, $user->image);

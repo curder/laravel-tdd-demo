@@ -39,6 +39,16 @@ class PostsController extends Controller
     }
 
     /**
+     * @param Post $post
+     *
+     * @return Post
+     */
+    public function show(Post $post)
+    {
+        return $post;
+    }
+
+    /**
      * @param Request $request
      *
      * @return mixed
