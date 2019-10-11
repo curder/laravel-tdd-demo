@@ -5,6 +5,9 @@ on: [push]
 jobs:
   phpunit:
     runs-on: ubuntu-latest
+  container:
+    # Need older releases? Switch out the tag (7.3) to 7.2 or 7.1
+    image: curder/laravel-docker:7.3
 
     steps:
     - uses: actions/checkout@v1
