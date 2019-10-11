@@ -5,28 +5,29 @@ on: [push]
 jobs:
   phpunit:
     runs-on: ubuntu-latest
-  container:
-    # Need older releases? Switch out the tag (7.3) to 7.2 or 7.1
-    image: curder/laravel-docker:7.3
+
+    container:
+      # Need older releases? Switch out the tag (7.3) to 7.2 or 7.1
+      image: curder/laravel-docker:7.3
 
     steps:
-    - uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
 
-    - name: Prepare Laravel Application
-      run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
+      - name: Prepare Laravel Application
+        run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
 
-    - name: Install Dependencies (PHP vendors)
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - name: Install Dependencies (PHP vendors)
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
-    - name: Create DB and schemas
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
-        php artisan migrate
-    - name: Generate key
-      run: php artisan key:generate
+      - name: Create DB and schemas
+        run: |
+          mkdir -p database
+          touch database/database.sqlite
+          php artisan migrate
+      - name: Generate key
+        run: php artisan key:generate
 
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      run: vendor/bin/phpunit tests/
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: vendor/bin/phpunit tests/
