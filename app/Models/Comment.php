@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
  * Class Comment.
@@ -26,6 +26,7 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     /**
      * @return BelongsTo
      */

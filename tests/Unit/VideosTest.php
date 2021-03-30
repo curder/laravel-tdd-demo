@@ -2,12 +2,12 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use App\Models\Video;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class VideosTest.
@@ -23,7 +23,8 @@ class VideosTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('videos', [
                 'id', 'user_id', 'title', 'url', 'description', 'size', 'length',
-            ]));
+            ])
+        );
     }
 
     /** @test  */

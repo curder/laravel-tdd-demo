@@ -4,14 +4,14 @@ namespace App;
 
 use App\Models\Country;
 use App\Models\Image;
-use App\Models\Role;
 use App\Models\Phone;
+use App\Models\Role;
 use App\Models\Supplier;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class User.
@@ -70,6 +70,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Supplier::class);
     }
+
     /**
      * @return BelongsTo
      */

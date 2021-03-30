@@ -5,8 +5,8 @@ namespace App\Models;
 use App\User;
 use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -31,12 +31,11 @@ class Post extends Model
     {
         parent::boot();
 
-        self::updating(static function(Post $model) {
-            if($model->isDirty('uuid')) {
+        self::updating(static function (Post $model) {
+            if ($model->isDirty('uuid')) {
                 $model->uuid = $model->getOriginal('uuid');
             }
         });
-
     }
 
     /**
@@ -46,7 +45,8 @@ class Post extends Model
     public function getUuidAttribute(): ?UuidInterface
     {
         $attribute = $this->attributes[$this->getRouteKeyName()] ?? null;
-        return !$attribute ? null : Uuid::fromString($attribute);
+
+        return ! $attribute ? null : Uuid::fromString($attribute);
     }
 
     /**

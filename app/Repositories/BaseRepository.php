@@ -56,6 +56,7 @@ class BaseRepository
     {
         return $this->model->find($id);
     }
+
     /**
      * @param  $id
      * @return mixed
@@ -65,6 +66,7 @@ class BaseRepository
     {
         return $this->model->findOrFail($id);
     }
+
     /**
      * @param array $data
      * @return Collection
@@ -73,6 +75,7 @@ class BaseRepository
     {
         return $this->model->where($data)->get();
     }
+
     /**
      * @param array $data
      * @return mixed
@@ -81,6 +84,7 @@ class BaseRepository
     {
         return $this->model->where($data)->first();
     }
+
     /**
      * @param array $data
      * @return mixed

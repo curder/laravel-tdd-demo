@@ -3,10 +3,10 @@
 namespace Tests\Feature\Admin;
 
 use App\User;
-use Tests\TestCase;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
+use Tests\TestCase;
 
 /**
  * Class CarouselTest.

@@ -2,15 +2,15 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
-use App\Models\Post;
-use App\Models\Image;
 use App\Models\Comment;
-use Illuminate\Support\Facades\Schema;
+use App\Models\Image;
+use App\Models\Post;
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class PostsTest.
@@ -26,7 +26,8 @@ class PostsTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('posts', [
                 'id', 'uuid', 'user_id', 'title', 'description', 'body',
-            ]));
+            ])
+        );
     }
 
     /** @test */

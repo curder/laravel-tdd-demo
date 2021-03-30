@@ -24,5 +24,4 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         $this->model = $post;
     }
-
 }

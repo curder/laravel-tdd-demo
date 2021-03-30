@@ -2,14 +2,14 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
-use App\Models\Post;
 use App\Models\Country;
-use Illuminate\Support\Facades\Schema;
+use App\Models\Post;
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class CountriesTest.
@@ -25,7 +25,8 @@ class CountriesTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('countries', [
                 'id', 'title', 'population',
-            ]));
+            ])
+        );
     }
 
     /** @test */

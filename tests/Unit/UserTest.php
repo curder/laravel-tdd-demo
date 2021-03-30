@@ -2,14 +2,14 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
-use App\Models\Role;
 use App\Models\Image;
 use App\Models\Phone;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\Role;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class UserTest.
@@ -25,7 +25,8 @@ class UserTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('users', [
                 'id', 'name', 'email', 'email_verified_at', 'password',
-            ]));
+            ])
+        );
     }
 
     /** @test */

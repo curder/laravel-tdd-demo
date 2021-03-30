@@ -2,13 +2,13 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
-use App\Models\Post;
 use App\Models\Image;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\Post;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class ImagesTest.

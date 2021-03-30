@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories\Interfaces;
+
 /**
  * Interface CarouselRepositoryInterface
  *
@@ -29,21 +30,25 @@ interface CarouselRepositoryInterface
      * @return mixed
      */
     public function find($id);
+
     /**
      * @param $id
      * @return mixed
      */
     public function findOneOrFail($id);
+
     /**
      * @param array $data
      * @return mixed
      */
     public function findBy(array $data);
+
     /**
      * @param array $data
      * @return mixed
      */
     public function findOneBy(array $data);
+
     /**
      * @param array $data
      * @return mixed

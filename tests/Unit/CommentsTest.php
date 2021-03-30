@@ -2,14 +2,14 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Video;
-use App\Models\Comment;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class CommentsTest.
@@ -25,7 +25,8 @@ class CommentsTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('comments', [
                 'id', 'user_id', 'post_id', 'body',
-            ]));
+            ])
+        );
     }
 
     /** @test */

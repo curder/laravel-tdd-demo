@@ -2,13 +2,13 @@
 
 namespace Tests\Unit\Api;
 
-use App\User;
-use Tests\TestCase;
 use App\Models\Post;
-use Ramsey\Uuid\Uuid;
-use Illuminate\Support\Str;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
+use Tests\TestCase;
 
 /**
  * Class PostsTest.

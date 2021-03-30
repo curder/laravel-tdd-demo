@@ -2,14 +2,14 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use App\Models\Carousel;
-use App\Repositories\CarouselRepository;
-use Illuminate\Foundation\Testing\WithFaker;
 use App\Exceptions\CarouselNotFoundException;
 use App\Exceptions\CreateCarouselErrorException;
 use App\Exceptions\UpdateCarouselErrorException;
+use App\Models\Carousel;
+use App\Repositories\CarouselRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 /**
  * Class CarouselTest.

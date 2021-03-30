@@ -2,13 +2,13 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
 use App\Models\Role;
-use Illuminate\Support\Facades\Schema;
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class RolesTest.

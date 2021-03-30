@@ -3,13 +3,12 @@
 namespace App\Repositories;
 
 use App\Exceptions\CarouselNotFoundException;
+use App\Exceptions\CreateCarouselErrorException;
 use App\Exceptions\UpdateCarouselErrorException;
 use App\Models\Carousel;
-use Illuminate\Database\Eloquent\Model;
+use App\Repositories\Interfaces\CarouselRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
-use App\Exceptions\CreateCarouselErrorException;
-use App\Repositories\Interfaces\CarouselRepositoryInterface;
 
 /**
  * Class CarouselRepository.
@@ -55,6 +54,7 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
             throw new CarouselNotFoundException($e);
         }
     }
+
     /**
      * @param array $data
      * @return bool
@@ -68,6 +68,7 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
             throw new UpdateCarouselErrorException($e);
         }
     }
+
     /**
      * @return bool
      * @throws \Exception

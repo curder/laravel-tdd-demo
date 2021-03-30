@@ -2,12 +2,12 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
 use App\Models\Phone;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class PhonesTest.

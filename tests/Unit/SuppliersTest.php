@@ -2,13 +2,13 @@
 
 namespace Tests\Unit;
 
-use App\User;
-use Tests\TestCase;
 use App\Models\History;
 use App\Models\Supplier;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Schema;
+use Tests\TestCase;
 
 /**
  * Class SuppliersTest.
@@ -24,7 +24,8 @@ class SuppliersTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('suppliers', [
                 'id', 'name', 'services',
-            ]));
+            ])
+        );
     }
 
     /** @test */
