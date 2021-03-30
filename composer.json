@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2|^8.0",
+        "php": "^7.2",
         "dyrynda/laravel-model-uuid": "^5.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
