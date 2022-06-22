@@ -46,7 +46,7 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
      * @return Carousel
      * @throws CarouselNotFoundException
      */
-    public function findCarousel(int $id) : Carousel
+    public function findCarousel(int $id): Carousel
     {
         try {
             return $this->model->findOrFail($id);
@@ -60,7 +60,7 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
      * @return bool
      * @throws UpdateCarouselErrorException
      */
-    public function updateCarousel(array $data) : bool
+    public function updateCarousel(array $data): bool
     {
         try {
             return $this->model->update($data);
@@ -73,7 +73,7 @@ class CarouselRepository extends BaseRepository implements CarouselRepositoryInt
      * @return bool
      * @throws \Exception
      */
-    public function deleteCarousel() : ?bool
+    public function deleteCarousel(): ?bool
     {
         return $this->model->delete();
     }

@@ -34,7 +34,7 @@ class CarouselController extends Controller
                 $data['src'] = $request->file('image')->store('carousels', ['disk' => 'public']);
             }
 
-            $carouselRepo = new CarouselRepository(new Carousel);
+            $carouselRepo = new CarouselRepository(new Carousel());
             $carouselRepo->createCarousel($data);
 
             $request->session()->flash('message', 'Create carousel successful!');

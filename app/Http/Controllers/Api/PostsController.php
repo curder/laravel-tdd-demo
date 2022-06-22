@@ -64,7 +64,7 @@ class PostsController extends Controller
      *
      * @return Post
      */
-    public function update(Request $request, Post $post) : Post
+    public function update(Request $request, Post $post): Post
     {
         $updated = $request->all();
 
@@ -82,7 +82,7 @@ class PostsController extends Controller
      *
      * @throws \Exception
      */
-    public function destroy(Post $post) : Post
+    public function destroy(Post $post): Post
     {
         $postRepository = new PostRepository($post);
 
